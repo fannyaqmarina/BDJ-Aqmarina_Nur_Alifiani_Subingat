@@ -14,7 +14,7 @@ controller.getRsByKelurahan = async (req, res, next) => {
     let res_kelurahan;
     let rs = await getRs();
 
-    res.status(status.statusCode.success).json(status.successMessage(kelurahan))
+    res.status(status.statusCode.success).json(status.successMessage(rs))
 }
 
 const getKelurahan = async () => {
@@ -26,7 +26,7 @@ const getKelurahan = async () => {
             method: 'get',
             url: 'http://api.jakarta.go.id/v1/kelurahan'
         })
-        return data.data[0]
+        return data.data
     } catch (error) {
         console.log(error);
     }
@@ -41,7 +41,7 @@ const getRs = async () => {
             method: 'get',
             url: 'http://api.jakarta.go.id/v1/rumahsakitumum'
         })
-        return data.data[0]
+        return data.data
     } catch (error) {
         console.log(error);
     }
