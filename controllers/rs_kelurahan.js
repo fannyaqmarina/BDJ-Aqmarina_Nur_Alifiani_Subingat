@@ -12,7 +12,8 @@ controller.getRsByKelurahan = async (req, res, next) => {
 
         let arr_kel = kelurahan.find(({ kode_kelurahan }) => kode_kelurahan === kode_kelurahan);
         await Promise.all(rs.map(async element => {
-            if (element.kode_kelurahan == kode_kelurahan)
+            let result;
+            if (element.kode_kelurahan == kode_kelurahan) {
                 result = {
                     "id": element.id,
                     "nama_rsu": element.nama_rsu,
@@ -40,7 +41,10 @@ controller.getRsByKelurahan = async (req, res, next) => {
                         "nama": arr_kel.nama_kota
                     }
                 }
-            hasil.push(result)
+                hasil.push(result)
+            }
+
+
 
         }));
         res.status(status.statusCode.success).json(status.successMessage(hasil))

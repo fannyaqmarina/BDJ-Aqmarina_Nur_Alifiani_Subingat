@@ -5,9 +5,8 @@ const status = {};
 
 status.successMessage = ress => (
     {
-        code: '01',
-        status: true,
-        message: 'Success',
+        status: 'success',
+        count: ress.length,
         data: ress
     }
 );
@@ -31,9 +30,8 @@ status.updateMessage = ress => (
 
 status.emptyMessage = ress => (
     {
-        code: '02',
-        status: true,
-        message: 'Data tidak ditemukan',
+        status: 'empty',
+        count: '0',
         data: ress
     }
 );
